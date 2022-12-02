@@ -1,15 +1,10 @@
 import { connection } from '../data/connection'
+import { user } from '../types'
 
-export default async function selectAllUsers(name: string, type: string, order: string, sort: string, size: number, offset: number): Promise<any> {
+export default async function selectAllUsers(): Promise<user[]> {
     const result = await connection.raw(`
-       SELECT id, name, email, type
-       FROM aula48_exercicio
-       WHERE name LIKE "%${name}%"
-       AND type LIKE "%${type}%"
-       ORDER BY ${order} ${sort}
-       LIMIT ${size}
-       OFFSET ${offset};
+       SELECT * FROM labecommerce_users;
     `)
 
-    return result[0]
-}
+    return result[0];
+};
