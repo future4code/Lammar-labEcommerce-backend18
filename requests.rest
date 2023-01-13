@@ -1,0 +1,42 @@
+POST http://localhost:3003/users
+Content-Type: application/json
+
+{
+    "name": "carla",
+    "email": "carla@labenu.com",
+    "password": "12345"
+}
+
+###
+
+GET http://localhost:3003/users
+
+###
+
+POST http://localhost:3003/products
+Content-Type: application/json
+
+{
+    "name": "Calça",
+    "price": 129.90,
+    "imageUrl": "https://static3.tcdn.com.br/img/img_prod/799045/calca_new_era_piping_preta_24897_1_163cc2fdae886100ee7e38b55669a26e.jpg"
+}
+
+###
+
+GET http://localhost:3003/products?sort=price&order=desc&search=ca
+
+###
+
+POST http://localhost:3003/purchases
+Content-Type: application/json
+
+{
+    "userId": "1",
+    "productId": "2",
+    "quantity": 3
+}
+
+###
+
+GET http://localhost:3003/users/1/purchases
